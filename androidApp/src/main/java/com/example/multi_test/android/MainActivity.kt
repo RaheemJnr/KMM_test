@@ -71,55 +71,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingView(text: String, url: String) {
-    val density = LocalDensity.current
     Column() {
         Text(text = text)
         Spacer(modifier = Modifier.height(8.dp))
-
-//        AsyncImage(
-//            load = { loadSvgPainter(url, density) },
-//            painterFor = { it },
-//            contentDescription = "Idea logo",
-//            contentScale = ContentScale.FillWidth,
-//            modifier = Modifier.width(200.dp)
-//        )
 
         AsyncImage(model = url, contentDescription = "")
     }
 
 }
-
-
-//@Composable
-//fun <T> AsyncImage(
-//    load: suspend () -> T,
-//    painterFor: @Composable (T) -> Painter,
-//    contentDescription: String,
-//    modifier: Modifier = Modifier,
-//    contentScale: ContentScale = ContentScale.Fit,
-//) {
-//    val image: T? by produceState<T?>(null) {
-//        value = withContext(Dispatchers.IO) {
-//            try {
-//                load()
-//            } catch (e: IOException) {
-//                // instead of printing to console, you can also write this to log,
-//                // or show some error placeholder
-//                e.printStackTrace()
-//                null
-//            }
-//        }
-//    }
-//
-//    if (image != null) {
-//        Image(
-//            painter = painterFor(image!!),
-//            contentDescription = contentDescription,
-//            contentScale = contentScale,
-//            modifier = modifier
-//        )
-//    }
-//}
 
 
 @Preview
